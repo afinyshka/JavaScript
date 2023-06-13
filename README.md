@@ -9,3 +9,5 @@
 Добавила 5-oе ДЗ в файлик script10.js
 
 Добавила ДЗ к Продолжение JavaScript семинару 2 в HW_02/index02.html
+
+Добавила ДЗ к Продолжение JavaScript семинару 4 в HW_02/index04.html
