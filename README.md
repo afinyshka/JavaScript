@@ -13,3 +13,5 @@
 Добавила ДЗ к Продолжение JavaScript семинару 4 в HW_02/index04.html
 
 Добавила ДЗ к Продолжение JavaScript семинару 6 в HW_02/index06.html
+
+Добавила ДЗ к Продолжение JavaScript семинару 8 в HW_02/index08.html
