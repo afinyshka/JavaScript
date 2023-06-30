@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content"></div>
+    <script src="data10.js"></script>
+
+    <script>
+        // Задание 1
+        // 1. Поиск в интернете(бесплатные api примеры).
+        // 2. Найти любые данные, на произвольную тему.
+        // 3. Создать файл data.js
+        // 4. Создать переменную которая будет хранить данные из публичных api.
+
+        let outObjData
+
+        fetch('https://api.zippopotam.us/us/33162')
+            .then(response => response.text()) // преобразовывает в строку
+            .then(data => {
+                // console.log(data)
+                // console.log(data.country)
+                // console.log(typeof data)
+                const objData = JSON.parse(data) // преобразовывает в объект
+                outObjData = objData // присвоили переменную для вывода в область видимости из функции
+                console.log(objData)
+                console.log(typeof objData)
+                console.log(objData.country)
+            })
+            .catch(error => {
+                console.error('Error:', error)
+            })
+        setTimeout(() => {
+            console.log('Код после задержки на 3 секунды')
+            console.log(outObjData + ' new data') // после присвоения outObjData = objData должна определиться
+        }, 3000)
+
+
+        // Задание 2
+        // 1. Создать файл index.html.
+        // 2. Подключить data.js.
+        // 3. Сформировать контент из данных(картинка загловок и параграф).
+        // 4. Добавить данный контент в вёрстку.
+        // 5. * Добавить стили при необходимости(по желанию).
+
+        const dataB = JSON.parse(dataPublic)
+
+        const divContent = document.querySelector('.content')
+        const contentItem = document.createElement('div')
+        contentItem.classList.add('content__item')
+        divContent.append(contentItem)
+
+        const subHeading = document.createElement('h2')
+        subHeading.textContent = dataB.country
+        contentItem.append(subHeading)
+
+        const imgEl = document.createElement('img')
+        imgEl.src = dataB.image
+        imgEl.alt = 'post office'
+        contentItem.append(imgEl)
+
+        const pEl = document.createElement('p')
+        pEl.textContent = 'Postal Code: ' + dataB['post code']
+        contentItem.append(pEl)
+
+        const placesEl = document.createElement('p')
+        contentItem.append(placesEl)
+        for (let key in dataB.places[0]) {
+            const value = dataB.places[0][key]
+            const keyValueString = `${key}: ${value}; `
+            const keyValueElement = document.createTextNode(keyValueString)
+            placesEl.appendChild(keyValueElement)
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
